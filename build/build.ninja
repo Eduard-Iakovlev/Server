@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: Chat_Server
+# Project: Server
 # Configurations: Debug
 # =============================================================================
 
@@ -41,60 +41,59 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /home/eduard/projects/TCP/Server/build/
 # =============================================================================
-# Object build statements for EXECUTABLE target Chat_Server
+# Object build statements for EXECUTABLE target Server
 
 
 #############################################
-# Order-only phony target for Chat_Server
+# Order-only phony target for Server
 
-build cmake_object_order_depends_target_Chat_Server: phony || CMakeFiles/Chat_Server.dir
+build cmake_object_order_depends_target_Server: phony || CMakeFiles/Server.dir
 
-build CMakeFiles/Chat_Server.dir/main_Server.cpp.o: CXX_COMPILER__Chat_Server_Debug /home/eduard/projects/TCP/Server/main_Server.cpp || cmake_object_order_depends_target_Chat_Server
-  DEP_FILE = CMakeFiles/Chat_Server.dir/main_Server.cpp.o.d
+build CMakeFiles/Server.dir/main_Server.cpp.o: CXX_COMPILER__Server_Debug /home/eduard/projects/TCP/Server/main_Server.cpp || cmake_object_order_depends_target_Server
+  DEP_FILE = CMakeFiles/Server.dir/main_Server.cpp.o.d
   FLAGS = -g -std=gnu++20
-  OBJECT_DIR = CMakeFiles/Chat_Server.dir
-  OBJECT_FILE_DIR = CMakeFiles/Chat_Server.dir
+  OBJECT_DIR = CMakeFiles/Server.dir
+  OBJECT_FILE_DIR = CMakeFiles/Server.dir
 
-build CMakeFiles/Chat_Server.dir/User.cpp.o: CXX_COMPILER__Chat_Server_Debug /home/eduard/projects/TCP/Server/User.cpp || cmake_object_order_depends_target_Chat_Server
-  DEP_FILE = CMakeFiles/Chat_Server.dir/User.cpp.o.d
+build CMakeFiles/Server.dir/User.cpp.o: CXX_COMPILER__Server_Debug /home/eduard/projects/TCP/Server/User.cpp || cmake_object_order_depends_target_Server
+  DEP_FILE = CMakeFiles/Server.dir/User.cpp.o.d
   FLAGS = -g -std=gnu++20
-  OBJECT_DIR = CMakeFiles/Chat_Server.dir
-  OBJECT_FILE_DIR = CMakeFiles/Chat_Server.dir
+  OBJECT_DIR = CMakeFiles/Server.dir
+  OBJECT_FILE_DIR = CMakeFiles/Server.dir
 
-build CMakeFiles/Chat_Server.dir/Server.cpp.o: CXX_COMPILER__Chat_Server_Debug /home/eduard/projects/TCP/Server/Server.cpp || cmake_object_order_depends_target_Chat_Server
-  DEP_FILE = CMakeFiles/Chat_Server.dir/Server.cpp.o.d
+build CMakeFiles/Server.dir/Server.cpp.o: CXX_COMPILER__Server_Debug /home/eduard/projects/TCP/Server/Server.cpp || cmake_object_order_depends_target_Server
+  DEP_FILE = CMakeFiles/Server.dir/Server.cpp.o.d
   FLAGS = -g -std=gnu++20
-  OBJECT_DIR = CMakeFiles/Chat_Server.dir
-  OBJECT_FILE_DIR = CMakeFiles/Chat_Server.dir
+  OBJECT_DIR = CMakeFiles/Server.dir
+  OBJECT_FILE_DIR = CMakeFiles/Server.dir
 
-build CMakeFiles/Chat_Server.dir/Get.cpp.o: CXX_COMPILER__Chat_Server_Debug /home/eduard/projects/TCP/Server/Get.cpp || cmake_object_order_depends_target_Chat_Server
-  DEP_FILE = CMakeFiles/Chat_Server.dir/Get.cpp.o.d
+build CMakeFiles/Server.dir/Get.cpp.o: CXX_COMPILER__Server_Debug /home/eduard/projects/TCP/Server/Get.cpp || cmake_object_order_depends_target_Server
+  DEP_FILE = CMakeFiles/Server.dir/Get.cpp.o.d
   FLAGS = -g -std=gnu++20
-  OBJECT_DIR = CMakeFiles/Chat_Server.dir
-  OBJECT_FILE_DIR = CMakeFiles/Chat_Server.dir
+  OBJECT_DIR = CMakeFiles/Server.dir
+  OBJECT_FILE_DIR = CMakeFiles/Server.dir
 
-build CMakeFiles/Chat_Server.dir/Logger.cpp.o: CXX_COMPILER__Chat_Server_Debug /home/eduard/projects/TCP/Server/Logger.cpp || cmake_object_order_depends_target_Chat_Server
-  DEP_FILE = CMakeFiles/Chat_Server.dir/Logger.cpp.o.d
+build CMakeFiles/Server.dir/Logger.cpp.o: CXX_COMPILER__Server_Debug /home/eduard/projects/TCP/Server/Logger.cpp || cmake_object_order_depends_target_Server
+  DEP_FILE = CMakeFiles/Server.dir/Logger.cpp.o.d
   FLAGS = -g -std=gnu++20
-  OBJECT_DIR = CMakeFiles/Chat_Server.dir
-  OBJECT_FILE_DIR = CMakeFiles/Chat_Server.dir
+  OBJECT_DIR = CMakeFiles/Server.dir
+  OBJECT_FILE_DIR = CMakeFiles/Server.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target Chat_Server
+# Link build statements for EXECUTABLE target Server
 
 
 #############################################
-# Link the executable Chat_Server
+# Link the executable Server
 
-build Chat_Server: CXX_EXECUTABLE_LINKER__Chat_Server_Debug CMakeFiles/Chat_Server.dir/main_Server.cpp.o CMakeFiles/Chat_Server.dir/User.cpp.o CMakeFiles/Chat_Server.dir/Server.cpp.o CMakeFiles/Chat_Server.dir/Get.cpp.o CMakeFiles/Chat_Server.dir/Logger.cpp.o
+build Server: CXX_EXECUTABLE_LINKER__Server_Debug CMakeFiles/Server.dir/main_Server.cpp.o CMakeFiles/Server.dir/User.cpp.o CMakeFiles/Server.dir/Server.cpp.o CMakeFiles/Server.dir/Get.cpp.o CMakeFiles/Server.dir/Logger.cpp.o
   FLAGS = -g
-  LINK_LIBRARIES = -lmysqlclient
-  OBJECT_DIR = CMakeFiles/Chat_Server.dir
+  OBJECT_DIR = CMakeFiles/Server.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = Chat_Server
-  TARGET_PDB = Chat_Server.dbg
+  TARGET_FILE = Server
+  TARGET_PDB = Server.dbg
 
 
 #############################################
@@ -130,7 +129,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/eduard/projects/TCP/Server/build
 
-build all: phony Chat_Server
+build all: phony Server
 
 # =============================================================================
 # Built-in targets

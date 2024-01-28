@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "Chat_Server",
+					"name" : "Server",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "Chat_Server::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Chat_Server-Debug-68d59b41f493a128e068.json",
-					"name" : "Chat_Server",
+					"id" : "Server::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Server-Debug-f21f68fbd164b2a2d681.json",
+					"name" : "Server",
 					"projectIndex" : 0
 				}
 			]

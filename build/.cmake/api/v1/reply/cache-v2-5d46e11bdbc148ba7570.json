@@ -819,7 +819,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "Chat_Server"
+			"value" : "Server"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1127,6 +1127,42 @@
 		},
 		{
 			"name" : "Chat_Server_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/eduard/projects/TCP/Server"
+		},
+		{
+			"name" : "Server_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/eduard/projects/TCP/Server/build"
+		},
+		{
+			"name" : "Server_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "Server_SOURCE_DIR",
 			"properties" : 
 			[
 				{

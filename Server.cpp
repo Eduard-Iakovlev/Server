@@ -61,7 +61,7 @@ void Server::connect() {
 		exit(1);
 	}
 	else {
-		std::cout << " Ожидание данных: " << "\n";
+		std::cout << "\n Ожидание данных: " << "\n";
 	}
 	_length = sizeof(_client);
 	_connection = accept(_socket_file_descriptor, (struct sockaddr*)&_client, &_length);

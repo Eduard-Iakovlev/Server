@@ -9,14 +9,13 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
-project ("Chat_Server")
+project ("Server")
 
 # Добавьте источник в исполняемый файл этого проекта.
-add_executable (Chat_Server "main_Server.cpp" "main_Server.h" "User.h" "User.cpp"  "Server.h" "Server.cpp" "Get.h" "Get.cpp" "Logger.h" "Logger.cpp" "Consol_Input.h")
-target_link_libraries(Chat_Server mysqlclient)
+add_executable (Server "main_Server.cpp" "main_Server.h" "User.h" "User.cpp"  "Server.h" "Server.cpp" "Get.h" "Get.cpp" "Logger.h" "Logger.cpp" "Consol_Input.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET Chat_Server PROPERTY CXX_STANDARD 20)
+  set_property(TARGET Server PROPERTY CXX_STANDARD 20)
 endif()
 
 # TODO: Добавьте тесты и целевые объекты, если это необходимо.
