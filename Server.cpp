@@ -30,7 +30,7 @@ void Server::close_socket() {
 
 }
 
-//------------ Настройка порта и привязка сокета -------------
+//------------ Настройка порта -------------
 void Server::server_address() {
 	Universal_Input<int> enter_port('0', '9');
 	_server_address.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -97,8 +97,7 @@ void Server::log(std::string mess){
     std::ostringstream date_time_stream;
     date_time_stream << std::put_time(&timeinfo, "%Y-%m-%d %H:%M:%S") << "." << std::setfill('0') << std::setw(3) << milliseconds.count();
     std::string date_time = date_time_stream.str();
-    std::cout << date_time << std::endl;
-	std::string message = date_time + mess;
+	std::string message = date_time + " " + mess;
 
 	Logger logger(message);
 
@@ -140,7 +139,6 @@ void Server::server(){
 
 	while(true) {
 		receiving_user();
-		log(message());
 	}
 }
 
