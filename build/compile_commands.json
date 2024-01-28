@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/eduard/projects/TCP/Server/build",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -o CMakeFiles/Chat_Server.dir/main_Server.cpp.o -c /home/eduard/projects/TCP/Server/main_Server.cpp",
+  "file": "/home/eduard/projects/TCP/Server/main_Server.cpp"
+},
+{
+  "directory": "/home/eduard/projects/TCP/Server/build",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -o CMakeFiles/Chat_Server.dir/User.cpp.o -c /home/eduard/projects/TCP/Server/User.cpp",
+  "file": "/home/eduard/projects/TCP/Server/User.cpp"
+},
+{
+  "directory": "/home/eduard/projects/TCP/Server/build",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -o CMakeFiles/Chat_Server.dir/Server.cpp.o -c /home/eduard/projects/TCP/Server/Server.cpp",
+  "file": "/home/eduard/projects/TCP/Server/Server.cpp"
+},
+{
+  "directory": "/home/eduard/projects/TCP/Server/build",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -o CMakeFiles/Chat_Server.dir/Get.cpp.o -c /home/eduard/projects/TCP/Server/Get.cpp",
+  "file": "/home/eduard/projects/TCP/Server/Get.cpp"
+},
+{
+  "directory": "/home/eduard/projects/TCP/Server/build",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -o CMakeFiles/Chat_Server.dir/Logger.cpp.o -c /home/eduard/projects/TCP/Server/Logger.cpp",
+  "file": "/home/eduard/projects/TCP/Server/Logger.cpp"
+}
+]
