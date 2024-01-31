@@ -3,6 +3,7 @@
 #include "Consol_Input.h"
 #include <ctime>
 #include <iomanip>
+#include <future>
 
 
 
@@ -15,8 +16,7 @@ Server::Server(){
 void Server::socket_file() {
 	_socket_file_descriptor = socket(AF_INET, SOCK_STREAM, 0);
 	if (_socket_file_descriptor == -1) {
-		//std::cout << " Не удалось создать сокет!" << std::endl;
-		log(" Не удалось создать сокет!");
+		std::cout << " Не удалось создать сокет!" << std::endl;
 		exit(1);
 	}
 }
@@ -75,9 +75,15 @@ void Server::connect() {
 
 //-------------- Прием данных от пользователе --------------------
 void Server::receiving_user() {
+	while(true){
 	memset(_message, 0, sizeof(_message));
 	read(_connection, _message, sizeof(_message));
-	log(message());
+	std::string close = message();
+	if(close == "exit"){
+		farewell();
+		break;
+	} else log(message());
+	}
 }
 
 //------------- Перевод сообщения в string ---------------------------
@@ -137,9 +143,18 @@ void Server::server(){
 	binding_soket();
 	connect();
 
-	while(true) {
+	std::future<void> m = std::async(std::launch::async, &Server::menu, this);
+	while(true){
 		receiving_user();
 	}
+		m.wait();
 }
 
+void Server::menu(){
+	std::cout << "\n Для завершения нажмите \'Esc\'\n";
+	if(_getch() == _menu) {
+		close_socket();
+		exit(0);
+	}
+}
 

@@ -7,18 +7,13 @@
 #include<sys/socket.h>
 #include<netinet/in.h>
 
-#include <mysql/mysql.h>
-
 #include <vector>
-#include <map>
-#include <cstdlib>
 #include <thread>
 #include <chrono>
 
 #include "User.h"
 
 #define MESSAGE_LENGTH 1024 
-//#define PORT 7777 // Будем использовать этот номер порта
 
 class Server
 {
@@ -39,6 +34,7 @@ public:
 	void system_pause(int second);
 
 	void server();
+	void menu();
 
 
 private:
@@ -47,12 +43,7 @@ private:
 	struct sockaddr_in _server_address, _client;
 	socklen_t _length;
 	char _message[MESSAGE_LENGTH];
-
-	// ---------------- переменные сервера ---------
 	int _port;
-	std::map <std::string, User> _users;
-
 	char _menu = 27;
-	
-
+	std::vector<std::thread> _client_thread;
 };
