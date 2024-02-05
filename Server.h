@@ -33,7 +33,7 @@ public:
 	void clean_console();
 	void system_pause(int second);
 
-	void server();
+	void server_start();
 	void menu();
 
 

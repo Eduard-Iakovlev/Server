@@ -3,5 +3,5 @@
 int main()
 {
 	Server server;
-	server.server(); 
+	server.server_start(); 
 }

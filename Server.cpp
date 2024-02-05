@@ -7,6 +7,7 @@
 
 
 
+
 Server::Server(){
 	greeting();
 }
@@ -46,8 +47,7 @@ void Server::binding_soket(){
 	_bind_status = bind(_socket_file_descriptor, (struct sockaddr*)&_server_address,
 		sizeof(_server_address));
 	if (_bind_status == -1) {
-		//std::cout << " Не удалось выполнить привязку сокета!" << std::endl;
-		log(" Не удалось выполнить привязку сокета!");
+		std::cout << " Не удалось выполнить привязку сокета!" << std::endl;
 		exit(1);
 	}
 }
@@ -56,8 +56,7 @@ void Server::binding_soket(){
 void Server::connect() {
 	_connection_status = listen(_socket_file_descriptor, 5);
 	if (_connection_status == -1) {
-		//std::cout << " Сокет не может прослушивать новые подключения!" << "\n";
-		log(" Сокет не может прослушивать новые подключения!");
+		std::cout << " Сокет не может прослушивать новые подключения!" << "\n";
 		exit(1);
 	}
 	else {
@@ -66,8 +65,7 @@ void Server::connect() {
 	_length = sizeof(_client);
 	_connection = accept(_socket_file_descriptor, (struct sockaddr*)&_client, &_length);
 	if (_connection == -1) {
-		//std::cout << " Сервер не может принять данные от клиента!" << "\n";
-		log(" Сервер не может принять данные от клиента!");
+		std::cout << " Сервер не может принять данные от клиента!" << "\n";
 		exit(1);
 	}
 }
@@ -137,16 +135,19 @@ void Server::system_pause(int second){
 }
 
 //----------------- Основная функция работы сервера -------------------------------------------
-void Server::server(){
+void Server::server_start(){
 	socket_file();
 	server_address();
 	binding_soket();
 	connect();
 
 	std::future<void> m = std::async(std::launch::async, &Server::menu, this);
-	while(true){
 		receiving_user();
-	}
+	//for(int i = 0; i < 5; i++){
+	//	_client_thread.emplace_back(&Server::receiving_user, this);
+	//}
+	
+		std::cout << "\n Для завершения нажмите \'Esc\'\n";
 		m.wait();
 }
 
