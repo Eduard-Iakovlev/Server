@@ -12,7 +12,7 @@ endif()
 project ("Server")
 
 # Добавьте источник в исполняемый файл этого проекта.
-add_executable (Server "main_Server.cpp" "main_Server.h" "User.h" "User.cpp"  "Server.h" "Server.cpp" "Get.h" "Get.cpp" "Logger.h" "Logger.cpp" "Consol_Input.h")
+add_executable (Server "main_Server.cpp" "main_Server.h" "User.h" "User.cpp"  "Server.h" "Server.cpp" "Get.h" "Get.cpp" "Logger.h" "Logger.cpp" "Consol_Input.h" "PoolThread.h" "PoolThread.cpp" "RequestHander.h" "RequestHander.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET Server PROPERTY CXX_STANDARD 20)

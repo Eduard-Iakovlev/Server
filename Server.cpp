@@ -4,8 +4,8 @@
 #include <ctime>
 #include <iomanip>
 #include <future>
-
-
+#include "PoolThread.h"
+#include "RequestHander.h"
 
 
 Server::Server(){
@@ -62,31 +62,39 @@ void Server::connect() {
 	else {
 		std::cout << "\n Ожидание данных: " << "\n";
 	}
+}
+//-------------- Подключение пользователя --------------------------
+void Server::connect_user(){
 	_length = sizeof(_client);
 	_connection = accept(_socket_file_descriptor, (struct sockaddr*)&_client, &_length);
 	if (_connection == -1) {
-		std::cout << " Сервер не может принять данные от клиента!" << "\n";
+		std::cout << " Сервер не может принять данные от клиента!" << std::endl;
 		exit(1);
 	}
+	else{
+		std::cout << " клиент " << _connection << " подключен" << std::endl;
+	}
+		
 }
-//----------------------------------------
 
-//-------------- Прием данных от пользователе --------------------
-void Server::receiving_user() {
+//-------------- Прием данных от пользователе -------------------
+void Server::receiving_user(int connect, char* mess){
 	while(true){
-	memset(_message, 0, sizeof(_message));
-	read(_connection, _message, sizeof(_message));
-	std::string close = message();
-	if(close == "exit"){
-		farewell();
-		break;
-	} else log(message());
+		memset(mess, 0, sizeof(mess));
+		read(connect, mess, sizeof(mess));
+		std::string close = message(mess);
+		if(mess[0] == '\0') continue;
+		if(close == "exit"){
+			farewell(connect);
+			break;
+		} else log(Server::message(mess));
+		mess[0] = '\0';
 	}
 }
 
 //------------- Перевод сообщения в string ---------------------------
-std::string Server::message() {
-	return std::string(_message);
+std::string Server::message(char* mess){
+	return std::string(mess);
 }
 
 // ------------ Запись сообщения в log.txt
@@ -99,7 +107,7 @@ void Server::log(std::string mess){
     localtime_r(&time, &timeinfo); 
 
     std::ostringstream date_time_stream;
-    date_time_stream << std::put_time(&timeinfo, "%Y-%m-%d %H:%M:%S") << "." << std::setfill('0') << std::setw(3) << milliseconds.count();
+    date_time_stream << std::put_time(&timeinfo, "[%Y-%m-%d %H:%M:%S") << "." << std::setfill('0') << std::setw(3) << milliseconds.count() << "]";
     std::string date_time = date_time_stream.str();
 	std::string message = date_time + " " + mess;
 
@@ -119,8 +127,8 @@ void Server::greeting() {
 }
 
 //----------------- Прощание --------------------------------------------------------------
-void Server::farewell() {
-	std::cout << " Пользовател отключился от сети.\n";
+void Server::farewell(int user) {
+	std::cout << " Пользовател " << user << " отключился от сети.\n";
 }
 
 
@@ -142,17 +150,17 @@ void Server::server_start(){
 	connect();
 
 	std::future<void> m = std::async(std::launch::async, &Server::menu, this);
-		receiving_user();
-	//for(int i = 0; i < 5; i++){
-	//	_client_thread.emplace_back(&Server::receiving_user, this);
-	//}
-	
+	RequestHander rh;
+	while(true){
+		connect_user();
+		rh.push_task(receiving_user, _connection, _message);
+	}
 		std::cout << "\n Для завершения нажмите \'Esc\'\n";
 		m.wait();
 }
 
 void Server::menu(){
-	std::cout << "\n Для завершения нажмите \'Esc\'\n";
+	std::cout << " Для остановки сервера нажмите Esc, когда Вам это потребуется \n";
 	if(_getch() == _menu) {
 		close_socket();
 		exit(0);

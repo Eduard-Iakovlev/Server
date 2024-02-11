@@ -16,7 +16,8 @@ Logger::~Logger(){
 }
 
 void Logger::read_last_line(){
-    std::cout << " запись в журнале: \n" << get_last_line() << std::endl;
+    std::lock_guard<std::mutex> l(coutlocker);
+    std::cout << get_last_line() << std::endl;
 }
 
 void Logger::apped_to_log(){

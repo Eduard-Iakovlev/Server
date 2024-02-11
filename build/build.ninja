@@ -79,6 +79,18 @@ build CMakeFiles/Server.dir/Logger.cpp.o: CXX_COMPILER__Server_Debug /home/eduar
   OBJECT_DIR = CMakeFiles/Server.dir
   OBJECT_FILE_DIR = CMakeFiles/Server.dir
 
+build CMakeFiles/Server.dir/PoolThread.cpp.o: CXX_COMPILER__Server_Debug /home/eduard/projects/TCP/Server/PoolThread.cpp || cmake_object_order_depends_target_Server
+  DEP_FILE = CMakeFiles/Server.dir/PoolThread.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  OBJECT_DIR = CMakeFiles/Server.dir
+  OBJECT_FILE_DIR = CMakeFiles/Server.dir
+
+build CMakeFiles/Server.dir/RequestHander.cpp.o: CXX_COMPILER__Server_Debug /home/eduard/projects/TCP/Server/RequestHander.cpp || cmake_object_order_depends_target_Server
+  DEP_FILE = CMakeFiles/Server.dir/RequestHander.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  OBJECT_DIR = CMakeFiles/Server.dir
+  OBJECT_FILE_DIR = CMakeFiles/Server.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Server
@@ -87,7 +99,7 @@ build CMakeFiles/Server.dir/Logger.cpp.o: CXX_COMPILER__Server_Debug /home/eduar
 #############################################
 # Link the executable Server
 
-build Server: CXX_EXECUTABLE_LINKER__Server_Debug CMakeFiles/Server.dir/main_Server.cpp.o CMakeFiles/Server.dir/User.cpp.o CMakeFiles/Server.dir/Server.cpp.o CMakeFiles/Server.dir/Get.cpp.o CMakeFiles/Server.dir/Logger.cpp.o
+build Server: CXX_EXECUTABLE_LINKER__Server_Debug CMakeFiles/Server.dir/main_Server.cpp.o CMakeFiles/Server.dir/User.cpp.o CMakeFiles/Server.dir/Server.cpp.o CMakeFiles/Server.dir/Get.cpp.o CMakeFiles/Server.dir/Logger.cpp.o CMakeFiles/Server.dir/PoolThread.cpp.o CMakeFiles/Server.dir/RequestHander.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Server.dir
   POST_BUILD = :

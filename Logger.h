@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <shared_mutex>
+#include <mutex>
 
 class Logger{
     public:
@@ -16,5 +17,6 @@ class Logger{
     std::ofstream _filestream;
     std::string _filename;
     std::string get_last_line();
+    std::mutex coutlocker;
     std::shared_mutex shared_mutex;
 };

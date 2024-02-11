@@ -25,11 +25,12 @@ public:
 	void server_address(); // Настройка порта и привязка сокета
 	void binding_soket();// Привязка сокета
 	void connect(); // Постановка сервера на приём
-	void receiving_user(); // Прием данных
-	std::string message();// Перевод сообщения в стринг
-	void log(std::string mess);//Запись сообщения в log.txt
+	void connect_user();// Подключение пользователя
+	static void receiving_user(int connect, char*); // Прием данных
+	static std::string message(char* mess);// Перевод сообщения в стринг
+	static void log(std::string mess);//Запись сообщения в log.txt
 	void greeting();
-	void farewell();
+	static void farewell(int user);
 	void clean_console();
 	void system_pause(int second);
 
@@ -39,11 +40,12 @@ public:
 
 private:
 	// -------------- переменные сети -----------
-	int _socket_file_descriptor, _connection, _bind_status, _connection_status;
-	struct sockaddr_in _server_address, _client;
+	int _socket_file_descriptor, _bind_status, _connection_status, _connection;
+	struct sockaddr_in _server_address;
+	struct sockaddr_in _client;
 	socklen_t _length;
 	char _message[MESSAGE_LENGTH];
 	int _port;
 	char _menu = 27;
-	std::vector<std::thread> _client_thread;
+	static std::string _user;
 };
