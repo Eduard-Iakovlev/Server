@@ -12,7 +12,6 @@ Server::Server(){
 	greeting();
 }
 
-//--------------------------------- Работа сети ----------------------------------------------
 //----------- Создание сокета ---------------------------
 void Server::socket_file() {
 	_socket_file_descriptor = socket(AF_INET, SOCK_STREAM, 0);
@@ -35,11 +34,9 @@ void Server::close_socket() {
 void Server::server_address() {
 	Universal_Input<int> enter_port('0', '9');
 	_server_address.sin_addr.s_addr = htonl(INADDR_ANY);
-	// Зададим номер порта для связи
 	std::cout << " Введите номер порта: ";
 	_port = enter_port.input();
 	_server_address.sin_port = htons(_port);
-	// Используем IPv4
 	_server_address.sin_family = AF_INET;
 }
 // ------------ Привязка сокета ----------------------------------
@@ -126,7 +123,7 @@ void Server::greeting() {
 	std::cout << "\n          Сервер включён!\n\n";
 }
 
-//----------------- Прощание --------------------------------------------------------------
+//-----------------Отключение пользователя  --------------------------------------------------------------
 void Server::farewell(int user) {
 	std::cout << " Пользовател " << user << " отключился от сети.\n";
 }
@@ -142,7 +139,7 @@ void Server::system_pause(int second){
 	std::this_thread::sleep_for(std::chrono::seconds(second));
 }
 
-//----------------- Основная функция работы сервера -------------------------------------------
+//----------------- Запуск сервера  ---------- -------------------------------------------
 void Server::server_start(){
 	socket_file();
 	server_address();

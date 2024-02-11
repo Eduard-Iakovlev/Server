@@ -22,19 +22,19 @@ public:
 
 	void socket_file(); // Создание сокета
 	void close_socket(); // Закрытие сокета
-	void server_address(); // Настройка порта и привязка сокета
+	void server_address(); // Настройка порта
 	void binding_soket();// Привязка сокета
 	void connect(); // Постановка сервера на приём
 	void connect_user();// Подключение пользователя
 	static void receiving_user(int connect, char*); // Прием данных
 	static std::string message(char* mess);// Перевод сообщения в стринг
 	static void log(std::string mess);//Запись сообщения в log.txt
-	void greeting();
-	static void farewell(int user);
-	void clean_console();
-	void system_pause(int second);
+	void greeting(); // Приветствие
+	static void farewell(int user); //Отключение пользователя
+	void clean_console(); // Очистка консоли
+	void system_pause(int second); // Пауза
 
-	void server_start();
+	void server_start(); // Запуск сервера
 	void menu();
 
 
